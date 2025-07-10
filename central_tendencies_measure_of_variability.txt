@@ -1,0 +1,132 @@
+Central Tendencies are the central values in the dataset. It tells us where the center of data lies.
+
+Mean : The average sum.
+
+ Example:  (100 + 110 + 120 + 500) / 4 = 207.5.
+
+ when to use in ML ?  Feature scaling, imputation
+
+
+
+Median : The middle value. If numbers are odd in count ,
+
+  Arrange in ascending and the middle most value , If numbers are even , Arrange in ascending sum of middle two values / 2
+
+  Example: a = [100 + 110 + 120 + 500] , Median of a is  (110+120) / 2  =  115
+
+  when to use in ML ? Better for skewed data or outliers
+
+
+
+Mode :  Frequent Value in the data set
+
+    Example : [15,17,19,17,35,91,17,85]
+
+    The Mode is 17
+
+    When to use in ML? In categorical feature analysis
+
+
+Variability : How Spread out the data is from the center
+
+Main Measures : Range , variance , Standard deviation
+
+Data = [5, 7, 8, 6, 9, 10, 12, 8, 6, 7]
+
+Mean Average  =  Sum of all / Number of values  =  5+7+8+6+9+10+12+8+6+7 /  10  = 78/10 = 7.8
+
+Range = [5,6,7,8,9,10,12] = 12 - 5  = 7
+
+Variance : average of the squared distances from the Mean
+
+Why square to avoid negative values
+
+(5 - 7.8)^2 = 7.84
+(7 - 7.8)^2 = 0.64
+(8 - 7.8)^2 = 0.04
+(6 - 7.8)^2 = 3.24
+(9 - 7.8)^2 = 1.44
+(10 - 7.8)^2 = 4.84
+(12 - 7.8)^2 = 17.64
+(8 - 7.8)^2 = 0.04
+(6 - 7.8)^2 = 3.24
+(7 - 7.8)^2 = 0.64
+
+Now, Sum =7.84+0.64+0.04+3.24+1.44+4.84+17.64+0.04+3.24+0.64= 39.6
+
+Variance = 39.6 /10 = 3.96
+
+Standard deviation : Square Root of variance
+
+Root of 3.96 = 1.99
+
+Wondering why do we need Variability in the ML lets understand with an example.
+
+Imagine:
+You and your 9 friends all baked cupcakes.
+Each person made a different number of cupcakes of sizes [5, 6, 6, 7, 8, 8, 9, 10, 11, 12]
+
+Now you want to understand: “How much did we all make, and how different are our numbers?”
+
+This is exactly what machine learning tries to understand too — how spread out or tight numbers are in data.
+
+Range tells us How far apart is the best and worst?
+
+ 12 -5 = 7
+
+Variance tells us How much does everyone’s cupcake count vary from the average.
+
+First, find the mean (average).
+
+Then, for each person, check:
+
+"How far is this person from the average?"  Square that number why square ? (to avoid negatives).
+
+Finally average those , This tells us how spread out the values are whether little or more.
+
+On average, the squared difference from the mean is 4.76 cupcake².
+It's a measure of spread, but in squared units, not actual cupcakes.
+
+Standard Deviation:
+
+On average, how far is each person from the middle
+
+The actual average distance from the mean is about 2.18 cupcakes.
+
+Apart from these , i would also suggest you to learn
+Vector operations,
+martix,
+statistics,
+population&sample,
+percentiles and quantiles,
+correlation&causation,
+Hypothesis testing,
+probability,
+random variables
+Normal distribution and skewness
+
+Normal distribution means data points in the data set lie in the middle of the range and rest tapper off symmetrically to the either extreme
+
+Normal distribution is also called as Gaussian distribution
+
+Skewness means when distribution curve appears distorted or skewed either to the left or right in a statistical distribution
+
+Negatively skewed means  Tapper or slant in the left side
+
+Positively skewed means Tapper or slant in the right side
+
+Poisson Distribution is a probability distribution that measures how many times an event is likely to occur with in a specific period of time.
+
+With help of Poisson distribution we can understand the independent events that occur at a constant rate within a given interval of time.
+
+p(x)= e^-λ λ^x / x! where , λ is the mean , x is number of times event occurs , e is euler's number - 2.718
+
+
+
+
+
+
+
+
+
+

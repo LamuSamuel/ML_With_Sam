@@ -1,0 +1,223 @@
+Work Flow in ML :
+
+    Data , Data preprocessing , Data analysis , Traintestsplit , Algorithm , Evaluator
+
+Cross validation :
+
+    Lets say we have two models SVM and Logistic regression and we need to check which one is the best fit for our model.
+    It helps prevent overfitting and gives a more reliable estimate of model performance.
+
+    How Cross validation Works ?
+
+    Splits the data into K-equal parts called folds
+
+    For each of K iterations
+
+    use k-1 for training and remaining fold for testing
+
+    Average the performance for the K trails
+
+    Example :
+
+    Dataset split into 5 folds:
+
+    Fold 1 → test Fold 1, Folds 2–5 → train  - Accuracy 1
+
+    Fold 2 → test Fold 2, Folds 1,3–5 → train - Accuracy 2
+
+    Fold 3 -> test Folds 3 , Folds 1,2,4,5 -> train - Accuracy 3
+
+    Fold 4 -> test fold 4, folds 1,2,3,5 -> train - Accuracy 4
+
+    Fold 5 → test Fold 5 , Folds 1–4 → train - Accuracy 5
+
+    Mean Accuracy = Accuracy 1 + Accuracy 2 + Accuracy 3 + Accuracy 4 + Accuracy 5 / 5
+
+    Compare the accuracies for the two models and then choose the best accuracy
+
+
+Outliers :
+    An outlier is a data point that is very different or far away from the rest of the data.
+
+    85, 87, 90, 88, 92, 89, 1000
+
+    Most scores are around 85–92
+
+    1000 is way off — it’s an outlier , Outliers can skew results , mislead model to overcome this better transform the data (log)
+
+
+
+
+Overfitting in Machine Learning :
+
+    Overfitting happens when a machine learning model learns too much from the training data — including the noise, errors, or random details — instead of just learning the general patterns.
+
+    because of this situation model performs on the training data too well and poorly on newly and unseen data.
+
+    In simple words .
+
+    Imagine you're studying for an exam by memorizing every question and answer from last year's paper.
+
+    On the same exam = You do great
+
+    On a new exam = You struggle because you didn't learn the actual concepts — just the specific answers.
+
+    Now you may ask how to find Overfitting?
+
+    Simple ans: High training accuracy and low testing accuracy , so always check accuracies of test and train data
+
+    Reasons for over fitting : less data , complicated model  , more number of layers in neural networks
+
+    Ways to prevent overfitting : Using More data , Reduce number of layers in neural networks ,
+    Early stopping (Stop learning process at right time before model starts overfitting )
+    Bias- variance trade off (we will come across this in the later part of our preparation)
+    Use dropouts
+
+
+Underfitting in Machine Learning :
+    Underfitting happens when a machine learning model is too simple to capture the patterns in the data.
+    It fails to learn from the training data and performs poorly on both training and testing sets.
+
+    Example : You’re trying to predict house prices based on Size,Location and Number of rooms.
+
+    so while predicting the model you only consider Size feature neglecting all the other important features
+
+    In result Model performs very poor and miss key patters
+
+    How to find out model has unfitted ?
+        Very low training data accuracy
+
+    Causes for underfitting :
+
+        choosing wrong model
+
+        less complexity in the model
+
+        less variance and high bias  (we will come across this in the later part of our preparation)
+
+    Preventing Underfitting :
+
+    Choosing the correct model which is appropriate for the model
+
+    increasing complexity
+
+    More number of parameters to the model
+
+    Bias variance trade off
+
+Bias Variance Trade off:
+
+     Bias : Bias is the difference between the average prediction of our model and the correct value which we are trying to predict
+
+     Variance : Variance is the amount that the estimated target function will change if different training data was used.
+
+     Underfitting : High bias and low variance (doesn't learn much and doesn't travel through all the data points )
+
+     Overfitting  : low bias and high variance (Travels through all the data point and when there is a change in data points there will also be change in graph plotted)
+
+     So what is a good model ? The model that is optimized and doesn't have less or more variance and bias.
+
+     Techinique's to have a better bias -variance tradeoff - Good Model selection and
+
+     Dimensionality reduction
+     (if 1000 Features reduce them to convincing values and neglect the one's that are not needed)
+     Ensemble Methods
+
+
+Loss Function in Machine Learning:
+
+    Loss Function measures how far an estimated values is from its true value , it help to determine which model is best and which parameters are better helpful
+
+   Mean Squared Error MSE = (1/n) * Σ(yᵢ - ȳ)² , where yi is actual value , ȳi is predicted value and n is the number of data points
+
+   suppose we want to predict temperatures : Actual value is [20,32,28] Predicted is [29 , 34 , 27]
+
+   MSE= 1/3[(30−29)2+(32−34)2+(28−27)2] =1/3[1+4+1] = 2
+
+   if the MSE or loss function is 0  then it has a very high accuracy.
+
+   Again we estimate the model is bad if the MSE is high (based on the magnitude of the data)
+
+Evaluation :
+
+       Evaluation - How good the model is
+
+     Evaluation Metric for Classification is Accuracy Score
+
+     Evaluation Metric for Regression is Mean absolute error
+
+     Accuracy score : Ratio of Number of correct predictions to the total number of input data points
+
+     Accuracy score = Number of correct predictions / Total number of data points * 100
+
+Types of Parameters :
+
+        Model Parameters:(Internal Parameters)
+
+            These are the parameters of the model that are set by the model while learning through the data.
+            EX : Weights and bias
+
+            Weights : They decide how much influence the input will have on the output.
+
+            Bias is an offset value given to a model and it is used to shift the model in particular direction.It is usually called the y-intercept if b = y then then all values are zeros (y=wx+b , where x  is 0 then y =b)
+
+            Y = wx+b
+
+            w is the weight and b is bias (same like slope and intercept, which are used to predict in the Linear Regression)
+
+            You must have understood the Model parameters , lets go deep in Hyper Parameters
+
+
+        Hyper parameters : (External Parameters) - used to improve the model tria
+
+            EX : Learning rate and Number of Epochs , Fit_intercept
+
+            We set them during training . Since we have set them they control the behaviour of the model.
+
+            For example we call the Linear_Regression via sklearn.linear_model
+
+            so when you try to call the model like model =  Linear_Regression(Fit_intercept = True)
+
+            The above hyper parameter Fit_intercept = True  is set to default , so this isn't explicitly mentioned by the developers.
+
+            However if it is set to false we will not be having the intercept and model always goes through(0,0) , which results in High inaccuracy.
+
+            Like wise we have many hyperparameters for diff models we'll come across them in future.
+
+            So they are used as they try to control our model for better or best accuracy.
+
+            Learning rate : This is a tuning parameter in an optimization algorithm that determines the step at each iteration.While moving towards a minimum of a Loss Function
+
+            The above statement is complicated right , lets understand it easily :
+
+                    Model makes a random prediction if its linear regression it uses y = wx+b to get predicted value if the value is not expected then,
+
+                    Loss function calculates the error by subtracting the Actual value - predicted value.
+
+                    The gradient of the loss is computed — it tells us the direction to move the weights to reduce the error.
+
+                    The weights are updated using this formula :  new weight = current weight−learning rate × gradient this new weight will again be plugged in  y = wx+b
+
+
+            Number of Epochs : It represent the number of times the model iterates over the entire dataset.
+
+             Say data size is 1000 rows so batch size is 10 , in first epoch 1-100, 101-200, 201-300 .......
+
+             In second epoch (1-50,150-200), (51-150) some thing like this and so onn....
+
+             In 3rd and so on model finds it's own ways to test on different batches
+
+             Finally , we will be notified if the model is underfitted or overfitted.
+
+Model Optimization :
+
+    Optimization refers to determining the best parameters for a model , such that loss function of the model decreases as a result model can predict more  accurately .
+
+Gradient Descent:
+
+    it is an optimization algorithm used in Machine Learning to minimize a loss function.It is used to update the parameters of the learning model
+
+
+
+
+
